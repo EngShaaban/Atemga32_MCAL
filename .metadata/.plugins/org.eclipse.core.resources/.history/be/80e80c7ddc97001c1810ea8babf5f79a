@@ -1,0 +1,13 @@
+/*
+ * UART_Interface.h
+ *
+ *  Created on: Feb 27, 2022
+ *      Author: SHAABAN
+ */
+
+#ifndef UART_INTERFACE_H_
+#define UART_INTERFACE_H_
+
+
+
+#endif /* UART_INTERFACE_H_ */

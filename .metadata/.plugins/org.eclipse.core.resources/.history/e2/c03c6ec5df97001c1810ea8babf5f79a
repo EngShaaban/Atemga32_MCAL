@@ -1,0 +1,18 @@
+/*
+ * UART_Cnfg.h
+ *
+ *  Created on: Feb 27, 2022
+ *      Author: SHAABAN
+ */
+
+#ifndef UART_CNFG_H_
+#define UART_CNFG_H_
+
+/****************************************************************************/
+/* MACOR NAME  :   UART_SPEED_MODE.                                         */
+/* Description :   Macro to Configure the speed mode of the UART.           */
+/* Options     :   NORMAL   or  DOUBLE .                                    */
+/****************************************************************************/
+#define UART_SPEED_MODE           NORMAL
+
+#endif /* UART_CNFG_H_ */

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="USART_PRIV_H_" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="true" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="UART_PRIV_H_"/>
+			<item value="UART_"/>
+			<item value="UART_INTERFACE_H_"/>
+			<item value="UART_CNFG_H_"/>
+			<item value="SetCompare"/>
+			<item value="Inline_Pre"/>
+			<item value="Inline_preload"/>
+			<item value="Inlin_preload"/>
+		</list>
+		<list key="replacehistory">
+			<item value="USART_PRIV_H_"/>
+			<item value="USART_"/>
+			<item value="USART_INTERFACE_H_"/>
+			<item value="USART_CNFG_H_"/>
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="284" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="391" key="DIALOG_HEIGHT"/>
+		<item value="917" key="DIALOG_X_ORIGIN"/>
+		<item value="95" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

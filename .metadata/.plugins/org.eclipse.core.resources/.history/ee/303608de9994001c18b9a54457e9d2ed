@@ -1,0 +1,35 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 15, 2022
+ *      Author: SHAABAN
+ */
+
+
+#include "STD_TYPES.h"
+#include "errorStates.h"
+#include "AVR_REG.h"
+
+#include "E:\Data\EmbeddedSystem\Drivers\Atmega16\MCAL\interrupt.h"
+#include "GIE_interface.h"
+
+#include "DIO/DIO_interface.h"
+
+#include "GIE_interface.h"
+
+
+
+int main(void)
+{
+	MCUCSR  = 0x03 ;
+
+
+
+
+	while(1)
+	{
+	}
+
+	return 0;
+}
+

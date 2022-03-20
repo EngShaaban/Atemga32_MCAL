@@ -1,0 +1,32 @@
+/*
+ * USART_Cnfg.c
+ *
+ *  Created on: Mar 11, 2022
+ *      Author: SHAABAN
+ */
+
+#include "LIB/STD_TYPES.h"
+#include "LIB/errorStates.h"
+
+#include "USART_Priv.h"
+#include "USART_Cnfg.h"
+//#include "USART_Interface.h"
+
+USART_strCnfg USART0=
+{
+
+		.EnableMode           =  USART_Disable  ,
+		.CommunicationMode    =  0  ,
+		.CommunicationTerminal=  0  ,
+		.InterruptSources     =  0  ,
+		.DataFrame            =  0  ,
+		.FrameControl         =  0  ,
+
+
+		.ClockPolarity        =  0  ,
+
+		.BaudRate:10          =  0  ,
+
+
+};
+

@@ -1,0 +1,42 @@
+10:50:44 **** Incremental Build of configuration Debug for project TIMER_Test ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:11:
+../AVR_REG.h:15:1: warning: "NULL" redefined
+Finished building: ../main.c
+In file included from ../main.c:9:
+../STD_TYPES.h:38:1: warning: this is the location of the previous definition
+ 
+Building target: TIMER_Test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TIMER_Test.map -mmcu=atmega32 -o "TIMER_Test.elf"  ./DIO/DIO_prog.o  ./GIE_prog.o ./main.o   
+Finished building target: TIMER_Test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TIMER_Test.elf  >"TIMER_Test.lss"
+Finished building: TIMER_Test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TIMER_Test.elf  "TIMER_Test.hex"
+Finished building: TIMER_Test.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TIMER_Test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7052 bytes (21.5% Full)
+(.text + .data + .bootloader)
+
+Data:        270 bytes (13.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+10:50:49 Build Finished (took 5s.175ms)
+

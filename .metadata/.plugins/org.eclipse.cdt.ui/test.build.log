@@ -1,0 +1,8 @@
+10:53:06 **** Incremental Build of configuration Debug for project test ****
+Info: Internal Builder is used for build
+gcc -o test.exe test.o 
+E:\Data\EmbeddedSystem\IMT\Tools\ToolChains\mingw64\bin/ld.exe: E:/Data/EmbeddedSystem/IMT/Tools/03-IMT SDK/03- IMT SDK/03- IMT SDK/IMT_SDK_Win_64/mingw/bin/../libexec/gcc/i686-w64-mingw32/5.2.0/liblto_plugin-0.dll: error loading plugin: 
+collect2.exe: error: ld returned 1 exit status
+
+10:53:07 Build Finished (took 724ms)
+

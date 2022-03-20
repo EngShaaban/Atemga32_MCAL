@@ -1,0 +1,33 @@
+/*
+ * UART_Priv.h
+ *
+ *  Created on: Feb 27, 2022
+ *      Author: SHAABAN
+ */
+
+#ifndef UART_PRIV_H_
+#define UART_PRIV_H_
+
+
+#define NORMAL       0
+#define DOUBLE       1
+
+/****************************************************************************/
+/* UART REGISTERS DEFINITION.                                                    */
+/****************************************************************************/
+#define   UCSRA         (*((volatile u8* const)0x2B))
+
+
+// UCSRA Bits Definition.
+#define   RXC           7
+#define   TXC           6
+#define   UDRE          5
+#define   FE            4
+#define   DOR           3
+#define   PE            2
+#define   U2X           1
+#define   MPCM          0
+
+#define UART_MSK_BIT    1
+
+#endif /* UART_PRIV_H_ */

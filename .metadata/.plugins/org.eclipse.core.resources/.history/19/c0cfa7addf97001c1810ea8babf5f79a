@@ -1,0 +1,13 @@
+/*
+ * UART_Cnfg.h
+ *
+ *  Created on: Feb 27, 2022
+ *      Author: SHAABAN
+ */
+
+#ifndef UART_CNFG_H_
+#define UART_CNFG_H_
+
+#define UART_SPEED_MODE
+
+#endif /* UART_CNFG_H_ */

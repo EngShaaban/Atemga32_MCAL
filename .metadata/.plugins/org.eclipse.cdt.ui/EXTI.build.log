@@ -1,0 +1,19 @@
+15:05:19 **** Incremental Build of configuration Debug for project EXTI ****
+make all 
+Building file: ../MCAL/DIO_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO_prog.d" -MT"MCAL/DIO_prog.o" -c -o "MCAL/DIO_prog.o" "../MCAL/DIO_prog.c"
+../MCAL/DIO_prog.c:16:54: error: E:\NTI\AVR\ATmeg16_Drivers\LIB\STD_TYPES.h: No such file or directory
+../MCAL/DIO_prog.c:17:56: error: E:\NTI\AVR\ATmeg16_Drivers\LIB\errorStates.h: No such file or directory
+../MCAL/DIO_prog.c:33: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'DIO_enuSetPortDirection'
+../MCAL/DIO_prog.c:82: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'DIO_enuSetPortValue'
+../MCAL/DIO_prog.c:127: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'DIO_enuToggelPort'
+../MCAL/DIO_prog.c:176: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'DIO_enuGetPortVlaue'
+../MCAL/DIO_prog.c:250: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'DIO_enuSetPinDirection'
+../MCAL/DIO_prog.c:338: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'DIO_enuSetPinValue'
+../MCAL/DIO_prog.c:424: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'DIO_enuToggelPin'
+../MCAL/DIO_prog.c:481: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'DIO_enuGetPinVlaue'
+make: *** [MCAL/DIO_prog.o] Error 1
+
+15:05:20 Build Finished (took 393ms)
+

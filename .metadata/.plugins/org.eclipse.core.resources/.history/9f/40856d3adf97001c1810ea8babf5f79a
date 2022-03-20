@@ -1,0 +1,54 @@
+/*
+ * UART_Prog.c
+ *
+ *  Created on: Feb 27, 2022
+ *      Author: SHAABAN
+ */
+
+#include "LIB/STD_TYPES.h"
+#include "LIB/errorStates.h"
+
+#include "UART_Priv.h"
+#include "UART_Cnfg.h"
+
+
+ES_t UART_enuInit( void )
+{
+	ES_t Error_enuState = ES_NOK ;
+
+
+	return Error_enuState ;
+}//End of UART_
+
+ES_t UART_enuSendChar(u8 Copy_u8Data)
+{
+	ES_t Error_enuState = ES_NOK ;
+
+
+	return Error_enuState ;
+}//End of UART_
+
+ES_t UART_enuRecieveChar( u8* Copy_u8Data )
+{
+	ES_t Error_enuState = ES_NOK ;
+
+
+	return Error_enuState ;
+}//End of UART_
+
+ES_t UART_enuSendString(const char* Copy_pcData)
+{
+	ES_t Error_enuState = ES_NOK ;
+
+
+	return Error_enuState ;
+}//End of UART_
+
+
+ES_t UART_enuReceiveString(char* Copy_pcData)
+{
+	ES_t Error_enuState = ES_NOK ;
+
+
+	return Error_enuState ;
+}//End of UART_

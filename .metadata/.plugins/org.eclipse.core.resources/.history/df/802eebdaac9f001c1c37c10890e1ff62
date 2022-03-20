@@ -1,0 +1,40 @@
+/*
+ * UART_Cnfg.h
+ *
+ *  Created on: Feb 27, 2022
+ *      Author: SHAABAN
+ */
+
+#ifndef USART_CNFG_H_
+#define USART_CNFG_H_
+
+
+/****************************************************************************/
+/***************************** PUBLIC MACROS ********************************/
+
+
+typedef struct
+{
+	//USART_enuEnableMode
+    u8                                  EnableMode           ;
+	USART_enuCommunicationMode          CommunicationMode    ;
+	USART_enuCommunicationTerminal      CommunicationTerminal;
+	USART_enuInterruptSource            InterruptSources     ;
+	USART_enuDataFrame                  DataFrame            ;
+	USART_enuFrameControl               FrameControl         ;
+
+	// Assign This Option ONLY When working in Sync Mode.
+	USART_enuClockPolarity              ClockPolarity        ;
+
+	u16                                 BaudRate:10          ;
+
+}USART_strCnfg;
+
+extern USART_strCnfg   USART0;
+
+
+#endif /* USART_CNFG_H_ */
+
+/***************************** END OF FILE. *********************************/
+/****************************************************************************/
+

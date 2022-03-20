@@ -1,0 +1,13 @@
+/*
+ * UART_Priv.h
+ *
+ *  Created on: Feb 27, 2022
+ *      Author: SHAABAN
+ */
+
+#ifndef UART_PRIV_H_
+#define UART_PRIV_H_
+
+
+
+#endif /* UART_PRIV_H_ */

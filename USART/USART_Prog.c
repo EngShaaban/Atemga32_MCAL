@@ -1,0 +1,363 @@
+/*****************************************************************************/
+/*****************************************************************************/
+/* Title                 :   UART_Prog                                       */
+/* Filename              :   UART_Prog.c                                     */
+/* Author                :   Shaban Abdullah Awad                            */
+/* Created on            :   Feb 27, 2022                                    */
+/* Version               :   1.0.0                                           */
+/* Toolchain             :   avr-gcc (4.3.3)                                 */
+/* Target                :   ATmega32                                        */
+/* Notes                 :   None                                            */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/******************************  INCLUDES  ***********************************/
+#include "LIB/STD_TYPES.h"
+#include "LIB/errorStates.h"
+
+#include "USART_Priv.h"
+
+#include "USART_Cnfg.h"
+#include "USART_Interface.h"
+
+
+void USART_enuInit(void)
+{
+	u8  UCSRA_Temp   = 0 ;
+	u8  UCSRB_Temp   = 0 ;
+	u8  UCSRC_Temp   = 0 ;
+	f32 UBRR_Temp    = 0 ;
+
+	switch( USART0.EnableMode )
+	{
+
+	case USART_Disable :
+		break;
+
+	case USART_Tx_Only :
+		UCSRB_Temp |=(USART_MSK_BIT<<TXEN);
+		break;
+
+	case USART_Rx_Only :
+		UCSRB_Temp |=(USART_MSK_BIT<<RXEN);
+		break;
+
+	case USART_Tx_Rx:
+		UCSRB_Temp |=(USART_MSK_BIT<<RXEN)|(USART_MSK_BIT<<TXEN);
+		break;
+
+	default:
+		break;
+
+	}//End of switch( USART0.EnableMode ).
+
+
+	switch( USART0.CommunicationMode )
+	{
+
+	case USART_Async_NormalSpeed :
+		/*1.Set USART for Async. Mode Normal Speed
+		 *U2X = 0. According to DataSheet page:143
+		 */
+		UBRR_Temp = ((f32)F_CPU/((16.0)*(USART0.BaudRate)))-0.5;
+		break;
+
+	case USART_Async_DoubleSpeed:
+		/*1.Set USART for Async. Mode Double Speed
+		 *U2X = 1. According to DataSheet page:143
+		 */
+		UCSRA_Temp |=(USART_MSK_BIT<<U2X);
+
+		//MY_UBRRL    ((F_CPU/(8*USART_SPEED_MODE)/BUAD_VAL-1)&0xFF)
+		UBRR_Temp = ((f32)F_CPU/((8.0)*(USART0.BaudRate)))-0.5;
+		break;
+
+	case USART_Sync:
+		//_For Synchronous Operation.
+		UCSRC_Temp |=(USART_MSK_BIT<<UMSEL);
+		UBRR_Temp = ((f32)F_CPU/((2.0)*(USART0.BaudRate)))-0.5;
+
+		 switch(USART0.ClockPolarity)
+		{
+		case USART_SmapleOnFalling:
+			break;
+
+		case USART_SmapleOnRasing:
+			UCSRC_Temp |=(USART_MSK_BIT<<UCPOL);
+			break;
+		default:
+			break;
+		}//End of switch(USART0.ClockPolarity).
+
+		break;
+
+	default:
+		break;
+	}//End of switch( USART0.CommunicationMode).
+
+	switch(USART0.CommunicationTerminal)
+	{
+	case USART_SingleProcessor:
+		//Already Done.
+		break;
+
+	case USART_MultiProcessor:
+		//_To enable the Multi-processor Communication mode.
+		UCSRA_Temp |=(USART_MSK_BIT<<MPCM);
+		break;
+
+	default:
+		break;
+
+	}//End of switch USART0.CommunicationTerminal.
+
+	switch(USART0.InterruptSources)
+	{
+	case USART_InterruptDisable :
+		break;
+
+	case USART_RxCompletEnable:
+		UCSRB_Temp |=(USART_MSK_BIT<<RXCIE);
+		break;
+
+	case USART_TxCompletEnable :
+		UCSRB_Temp |=(USART_MSK_BIT<<TXCIE);
+		break;
+
+	case USART_UDR_EmptyEnable :
+		UCSRB |=(USART_MSK_BIT<<UDRIE);
+		break;
+
+	case USART_RxComplet_TxComplet_Enable:
+		UCSRB_Temp |=(USART_MSK_BIT<<RXCIE) | (USART_MSK_BIT<<TXCIE);
+		break;
+
+	case USART_RxComplet_UDREmpty_Enable:
+		UCSRB_Temp |=(USART_MSK_BIT<<RXCIE)|(USART_MSK_BIT<<UDRIE);
+		break;
+
+	case USART_TxComplet_UDREmpty_Enable  :
+		UCSRB_Temp |=(USART_MSK_BIT<<TXCIE)|(USART_MSK_BIT<<UDRIE);
+		break;
+
+	case USART_TxComplet_RxComplet_UDR_EmptyEnable:
+		UCSRB_Temp |=(USART_MSK_BIT<<TXCIE)|(USART_MSK_BIT<<RXCIE)|(USART_MSK_BIT<<UDRIE);
+		break;
+
+	default:
+		break;
+
+	}//End of switch(USART0.InterruptSources).
+
+
+	/*******************************************
+	 * -Character Size in Frame configuration
+	 *  Using bits. UCSZ1 UCSZ0 in UCSRC Regis.
+	 *  and UCSZ2 in UCSRB Regis.
+	 *******************************************/
+	switch(USART0.DataFrame)
+	{
+	case USART_5bitData :
+		break;
+	case USART_6bitData :
+		UCSRC_Temp |=(USART_MSK_BIT<<UCSZ0);
+		break;
+	case USART_7bitData :
+		UCSRC_Temp |=(USART_MSK_BIT<<UCSZ1);
+		break;
+	case USART_8bitData :
+		UCSRC_Temp |=(USART_MSK_BIT<<UCSZ0)|(USART_MSK_BIT<<UCSZ1);
+		break;
+	case USART_9bitData :
+		UCSRC_Temp |=(USART_MSK_BIT<<UCSZ0)|(USART_MSK_BIT<<UCSZ1);
+		UCSRB_Temp |=(USART_MSK_BIT<<UCSZ2);
+		break;
+	default:
+		break;
+
+	}//End of switch(USART0.DataFrame).
+
+
+	/*******************************************
+	 *_Parity and  Stop Bit Handling.
+	 *******************************************/
+	switch(USART0.FrameControl)
+	{
+	case USART_ParityDisable_1stopBit:
+		break;
+
+	case USART_ParityDisable_2stopBit:
+		UCSRC_Temp |=(USART_MSK_BIT<<USBS);
+		break;
+	case USART_ParityEven_1stopBit:
+		UCSRC_Temp |=(USART_MSK_BIT<<UPM1);
+		break;
+	case USART_ParityEven_2stopBit:
+		UCSRC_Temp |=(USART_MSK_BIT<<UPM1);
+		UCSRC_Temp |=(USART_MSK_BIT<<USBS);
+		break;
+	case USART_ParityOdd_1stopBit:
+		UCSRC_Temp |=(USART_MSK_BIT<<UPM0)|(USART_MSK_BIT<<UPM1);
+		break;
+	case USART_ParityOdd_2stopBit:
+		UCSRC_Temp |=(USART_MSK_BIT<<UPM0)|(USART_MSK_BIT<<UPM1);
+		UCSRC_Temp |=(USART_MSK_BIT<<USBS);
+		break;
+	default:
+		break;
+
+
+
+	}
+
+
+
+//#define MY_UBRRL             ((F_CPU/(8*UART_SPEED_MODE)/BUAD_VAL-1)&0xFF)
+//#define MY_UBRRH             (((F_CPU/(8*UART_SPEED_MODE)/BUAD_VAL-1)>>8)&0x0F)
+
+
+
+	UBRRL  = F_CPU/()/USART0.
+
+	//Set the URSEL Bit to enable writting on UCSRC Regis.
+	UCSRC_Temp |=(USART_MSK_BIT<<URSEL);
+
+
+	UBRRL = (u8)UBRR_Temp;
+
+	//((((u16)UBRR_Temp)>>8)|0X0F)
+   // UBRRH = 0x00  ;
+	UCSRA= UCSRA_Temp;
+
+
+	UCSRC= UCSRC_Temp;
+	UCSRB= UCSRB_Temp;
+
+
+}//End of UART_enuInit().
+
+ES_t UART_enuSendByte(u8 Copy_u8Data)
+{
+	ES_t Local_enuErrorState  = ES_NOK ;
+
+	// Poll the for the UDRE
+	while( !((UCSRA>>UDRE)&1) );
+
+	UDR = Copy_u8Data  ;
+
+	//Check for the Completion of Transmittioin.
+	if( (UCSRA>>TXC)&1 )
+	{
+		//Clear the flag.
+		UCSRA |=(USART_MSK_BIT<<TXC);
+
+		Local_enuErrorState = ES_OK ;
+	}
+	else
+	{
+		//Do nothing.
+	}
+
+	return Local_enuErrorState  ;
+}//End of UART_enuSendByte().
+
+
+ES_t UART_enuRecieveByte( u8* Copy_u8Data )
+{
+	ES_t Local_enuErrorState  = ES_NOK ;
+
+	if(  Copy_u8Data != NULL  )
+	{
+		//There is NO Data to Read.
+		while( !(( UCSRA>>RXC)&1) );
+
+		*Copy_u8Data = UDR ;
+
+		Local_enuErrorState  = ES_OK ;
+	}
+	else
+	{
+		Local_enuErrorState  = ES_NULL_POINTER;
+	}
+
+	return Local_enuErrorState  ;
+}//End of UART_enuRecieveByte().
+
+//          UART_enuSendString( arr );
+
+ES_t UART_enuSendString( const u8* Copy_pcData)
+{
+	ES_t Local_enuErrorState  = ES_NOK ;
+
+	if( Copy_pcData != NULL )
+	{
+
+		while( *Copy_pcData != '\0')
+		{
+
+			while( !((UCSRA>>UDRE)&1) );
+
+			UDR = *Copy_pcData ;
+
+			Copy_pcData++ ;
+
+		}
+
+		Local_enuErrorState  = ES_OK ;
+	}
+	else
+	{
+		Local_enuErrorState  = ES_NULL_POINTER ;
+	}
+
+	return Local_enuErrorState  ;
+}//End of UART_enuRecieveByte().
+
+
+
+ES_t UART_enuReceiveString(u8*  Copy_pcData)
+{
+	ES_t Local_enuErrorState  = ES_NOK ;
+
+	if( Copy_pcData != 	NULL )
+	{
+		u8 Local_u8Data  = 0  ;
+
+		u8 Local_u8Index = 0  ;
+
+		while( !((UCSRA>>RXC)&1) );
+
+		u8 Local_u8Terminator = UDR ;
+
+		while(1)
+		{
+			while( !((UCSRA>>RXC)&1) );
+
+			Local_u8Data = UDR ;
+
+			if(Local_u8Data == Local_u8Terminator )
+			{
+				Copy_pcData[Local_u8Index] = '\0' ;
+
+				break;
+			}
+			else
+			{
+				Copy_pcData[Local_u8Index] = Local_u8Data ;
+
+				Local_u8Index++ ;
+			}
+
+		}
+
+		Local_enuErrorState = ES_OK ;
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER ;
+	}
+
+	return Local_enuErrorState  ;
+}//End of UART_enuRecieveByte().
+
