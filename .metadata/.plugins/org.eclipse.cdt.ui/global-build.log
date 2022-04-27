@@ -1,33 +1,355 @@
-15:05:51 **** Build of configuration Debug for project TIMER ****
-make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-Finished building: ../main.c
+08:55:26 **** Clean-only build of configuration Debug for project USART ****
+make clean 
+rm -rf  USART.hex  ./MCAL/USART/USART_Cnfg.o ./MCAL/USART/USART_Priv.o ./MCAL/USART/USART_Prog.o  ./MCAL/GIE/GIE_prog.o  ./MCAL/EXTI/EXTI_Cnfg.o ./MCAL/EXTI/EXTI_prog.o  ./MCAL/DIO/DIO_prog.o  ./APP/main.o  sizedummy  USART.lss  ./MCAL/USART/USART_Cnfg.d ./MCAL/USART/USART_Priv.d ./MCAL/USART/USART_Prog.d  ./MCAL/GIE/GIE_prog.d  ./MCAL/EXTI/EXTI_Cnfg.d ./MCAL/EXTI/EXTI_prog.d  ./MCAL/DIO/DIO_prog.d  ./APP/main.d  USART.elf
  
-Building target: TIMER.elf
+08:55:31 **** Build of configuration Debug for project USART ****
+make all 
+Building file: ../MCAL/USART/USART_Cnfg.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Cnfg.d" -MT"MCAL/USART/USART_Cnfg.o" -c -o "MCAL/USART/USART_Cnfg.o" "../MCAL/USART/USART_Cnfg.c"
+Finished building: ../MCAL/USART/USART_Cnfg.c
+ 
+Building file: ../MCAL/USART/USART_Priv.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Priv.d" -MT"MCAL/USART/USART_Priv.o" -c -o "MCAL/USART/USART_Priv.o" "../MCAL/USART/USART_Priv.c"
+Finished building: ../MCAL/USART/USART_Priv.c
+ 
+Building file: ../MCAL/USART/USART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Prog.d" -MT"MCAL/USART/USART_Prog.o" -c -o "MCAL/USART/USART_Prog.o" "../MCAL/USART/USART_Prog.c"
+../MCAL/USART/USART_Prog.c:495: error: conflicting types for 'USART_enuRecieveByteASync'
+../MCAL/USART/USART_Interface.h:182: error: previous declaration of 'USART_enuRecieveByteASync' was here
+../MCAL/USART/USART_Prog.c: In function 'USART_enuRecieveByteASync':
+../MCAL/USART/USART_Prog.c:501: error: 'USART_pAppFun' undeclared (first use in this function)
+../MCAL/USART/USART_Prog.c:501: error: (Each undeclared identifier is reported only once
+../MCAL/USART/USART_Prog.c:501: error: for each function it appears in.)
+../MCAL/USART/USART_Prog.c:502: error: 'USART_pAppPara' undeclared (first use in this function)
+../MCAL/USART/USART_Prog.c: In function '__vector_13':
+../MCAL/USART/USART_Prog.c:516: warning: dereferencing 'void *' pointer
+../MCAL/USART/USART_Prog.c:516: error: invalid use of void expression
+make: *** [MCAL/USART/USART_Prog.o] Error 1
+08:59:22 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../MCAL/USART/USART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Prog.d" -MT"MCAL/USART/USART_Prog.o" -c -o "MCAL/USART/USART_Prog.o" "../MCAL/USART/USART_Prog.c"
+../MCAL/USART/USART_Prog.c:495: error: conflicting types for 'USART_enuRecieveByteASync'
+../MCAL/USART/USART_Interface.h:182: error: previous declaration of 'USART_enuRecieveByteASync' was here
+../MCAL/USART/USART_Prog.c: In function 'USART_enuRecieveByteASync':
+../MCAL/USART/USART_Prog.c:502: error: 'Cpy_pu8Para' undeclared (first use in this function)
+../MCAL/USART/USART_Prog.c:502: error: (Each undeclared identifier is reported only once
+../MCAL/USART/USART_Prog.c:502: error: for each function it appears in.)
+make: *** [MCAL/USART/USART_Prog.o] Error 1
+09:00:44 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../MCAL/USART/USART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Prog.d" -MT"MCAL/USART/USART_Prog.o" -c -o "MCAL/USART/USART_Prog.o" "../MCAL/USART/USART_Prog.c"
+../MCAL/USART/USART_Prog.c:495: error: conflicting types for 'USART_enuRecieveByteASync'
+../MCAL/USART/USART_Interface.h:182: error: previous declaration of 'USART_enuRecieveByteASync' was here
+../MCAL/USART/USART_Prog.c: In function 'USART_enuRecieveByteASync':
+../MCAL/USART/USART_Prog.c:502: error: 'Cpy_pu8Para' undeclared (first use in this function)
+../MCAL/USART/USART_Prog.c:502: error: (Each undeclared identifier is reported only once
+../MCAL/USART/USART_Prog.c:502: error: for each function it appears in.)
+../MCAL/USART/USART_Prog.c: In function '__vector_13':
+../MCAL/USART/USART_Prog.c:516: error: 'USART_pPara' undeclared (first use in this function)
+make: *** [MCAL/USART/USART_Prog.o] Error 1
+09:01:12 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../MCAL/USART/USART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Prog.d" -MT"MCAL/USART/USART_Prog.o" -c -o "MCAL/USART/USART_Prog.o" "../MCAL/USART/USART_Prog.c"
+../MCAL/USART/USART_Prog.c:495: error: conflicting types for 'USART_enuRecieveByteASync'
+../MCAL/USART/USART_Interface.h:182: error: previous declaration of 'USART_enuRecieveByteASync' was here
+../MCAL/USART/USART_Prog.c: In function 'USART_enuRecieveByteASync':
+../MCAL/USART/USART_Prog.c:502: error: 'Cpy_pu8Para' undeclared (first use in this function)
+../MCAL/USART/USART_Prog.c:502: error: (Each undeclared identifier is reported only once
+../MCAL/USART/USART_Prog.c:502: error: for each function it appears in.)
+../MCAL/USART/USART_Prog.c: In function '__vector_13':
+../MCAL/USART/USART_Prog.c:516: error: 'USART_pPara' undeclared (first use in this function)
+make: *** [MCAL/USART/USART_Prog.o] Error 1
+09:01:47 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../MCAL/USART/USART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Prog.d" -MT"MCAL/USART/USART_Prog.o" -c -o "MCAL/USART/USART_Prog.o" "../MCAL/USART/USART_Prog.c"
+../MCAL/USART/USART_Prog.c:495: error: conflicting types for 'USART_enuRecieveByteASync'
+../MCAL/USART/USART_Interface.h:182: error: previous declaration of 'USART_enuRecieveByteASync' was here
+../MCAL/USART/USART_Prog.c: In function '__vector_13':
+../MCAL/USART/USART_Prog.c:516: error: 'USART_pPara' undeclared (first use in this function)
+../MCAL/USART/USART_Prog.c:516: error: (Each undeclared identifier is reported only once
+../MCAL/USART/USART_Prog.c:516: error: for each function it appears in.)
+make: *** [MCAL/USART/USART_Prog.o] Error 1
+09:02:05 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../MCAL/USART/USART_Cnfg.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Cnfg.d" -MT"MCAL/USART/USART_Cnfg.o" -c -o "MCAL/USART/USART_Cnfg.o" "../MCAL/USART/USART_Cnfg.c"
+Finished building: ../MCAL/USART/USART_Cnfg.c
+ 
+Building file: ../MCAL/USART/USART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Prog.d" -MT"MCAL/USART/USART_Prog.o" -c -o "MCAL/USART/USART_Prog.o" "../MCAL/USART/USART_Prog.c"
+../MCAL/USART/USART_Prog.c: In function '__vector_13':
+../MCAL/USART/USART_Prog.c:516: error: 'USART_pPara' undeclared (first use in this function)
+../MCAL/USART/USART_Prog.c:516: error: (Each undeclared identifier is reported only once
+../MCAL/USART/USART_Prog.c:516: error: for each function it appears in.)
+make: *** [MCAL/USART/USART_Prog.o] Error 1
+09:02:32 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../MCAL/USART/USART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Prog.d" -MT"MCAL/USART/USART_Prog.o" -c -o "MCAL/USART/USART_Prog.o" "../MCAL/USART/USART_Prog.c"
+../MCAL/USART/USART_Prog.c: In function '__vector_13':
+../MCAL/USART/USART_Prog.c:517: error: 'USART_pPara' undeclared (first use in this function)
+../MCAL/USART/USART_Prog.c:517: error: (Each undeclared identifier is reported only once
+../MCAL/USART/USART_Prog.c:517: error: for each function it appears in.)
+make: *** [MCAL/USART/USART_Prog.o] Error 1
+09:03:07 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../MCAL/USART/USART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Prog.d" -MT"MCAL/USART/USART_Prog.o" -c -o "MCAL/USART/USART_Prog.o" "../MCAL/USART/USART_Prog.c"
+../MCAL/USART/USART_Prog.c: In function '__vector_13':
+../MCAL/USART/USART_Prog.c:517: error: 'USART_pu8ParaUSART_pu8Para' undeclared (first use in this function)
+../MCAL/USART/USART_Prog.c:517: error: (Each undeclared identifier is reported only once
+../MCAL/USART/USART_Prog.c:517: error: for each function it appears in.)
+make: *** [MCAL/USART/USART_Prog.o] Error 1
+09:03:13 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../MCAL/USART/USART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Prog.d" -MT"MCAL/USART/USART_Prog.o" -c -o "MCAL/USART/USART_Prog.o" "../MCAL/USART/USART_Prog.c"
+Finished building: ../MCAL/USART/USART_Prog.c
+ 
+Building file: ../MCAL/GIE/GIE_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/GIE/GIE_prog.d" -MT"MCAL/GIE/GIE_prog.o" -c -o "MCAL/GIE/GIE_prog.o" "../MCAL/GIE/GIE_prog.c"
+Finished building: ../MCAL/GIE/GIE_prog.c
+ 
+Building file: ../MCAL/EXTI/EXTI_Cnfg.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/EXTI/EXTI_Cnfg.d" -MT"MCAL/EXTI/EXTI_Cnfg.o" -c -o "MCAL/EXTI/EXTI_Cnfg.o" "../MCAL/EXTI/EXTI_Cnfg.c"
+Finished building: ../MCAL/EXTI/EXTI_Cnfg.c
+ 
+Building file: ../MCAL/EXTI/EXTI_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/EXTI/EXTI_prog.d" -MT"MCAL/EXTI/EXTI_prog.o" -c -o "MCAL/EXTI/EXTI_prog.o" "../MCAL/EXTI/EXTI_prog.c"
+../MCAL/EXTI/EXTI_prog.c: In function '__vector_1':
+../MCAL/EXTI/EXTI_prog.c:482: warning: passing argument 1 of 'EXTI_ApfunINTFunc[0]' discards qualifiers from pointer target type
+../MCAL/EXTI/EXTI_prog.c: In function '__vector_2':
+../MCAL/EXTI/EXTI_prog.c:497: warning: passing argument 1 of 'EXTI_ApfunINTFunc[1]' discards qualifiers from pointer target type
+../MCAL/EXTI/EXTI_prog.c: In function '__vector_3':
+../MCAL/EXTI/EXTI_prog.c:514: warning: passing argument 1 of 'EXTI_ApfunINTFunc[2]' discards qualifiers from pointer target type
+Finished building: ../MCAL/EXTI/EXTI_prog.c
+ 
+Building file: ../MCAL/DIO/DIO_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO/DIO_prog.d" -MT"MCAL/DIO/DIO_prog.o" -c -o "MCAL/DIO/DIO_prog.o" "../MCAL/DIO/DIO_prog.c"
+Finished building: ../MCAL/DIO/DIO_prog.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+Finished building: ../APP/main.c
+ 
+Building target: USART.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,TIMER.map -mmcu=atmega32 -o "TIMER.elf"  ./GIE/GIE_prog.o  ./EXTI/EXTI_Cnfg.o ./EXTI/EXTI_prog.o  ./DIO/DIO_prog.o  ./TIMER_Cnfg.o ./TIMER_Prog.o ./main.o   
-Finished building target: TIMER.elf
+avr-gcc -Wl,-Map,USART.map -mmcu=atmega32 -o "USART.elf"  ./MCAL/USART/USART_Cnfg.o ./MCAL/USART/USART_Priv.o ./MCAL/USART/USART_Prog.o  ./MCAL/GIE/GIE_prog.o  ./MCAL/EXTI/EXTI_Cnfg.o ./MCAL/EXTI/EXTI_prog.o  ./MCAL/DIO/DIO_prog.o  ./APP/main.o   
+Finished building target: USART.elf
  
 Invoking: AVR Create Extended Listing
-avr-objdump -h -S TIMER.elf  >"TIMER.lss"
-Finished building: TIMER.lss
+avr-objdump -h -S USART.elf  >"USART.lss"
+Finished building: USART.lss
  
 Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TIMER.elf  "TIMER.hex"
-Finished building: TIMER.hex
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART.elf  "USART.hex"
+Finished building: USART.hex
  
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 TIMER.elf
+avr-size --format=avr --mcu=atmega32 USART.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   12318 bytes (37.6% Full)
+Program:    9992 bytes (30.5% Full)
 (.text + .data + .bootloader)
 
-Data:        338 bytes (16.5% Full)
+Data:        292 bytes (14.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:07:13 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+Finished building: ../APP/main.c
+ 
+Building target: USART.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,USART.map -mmcu=atmega32 -o "USART.elf"  ./MCAL/USART/USART_Cnfg.o ./MCAL/USART/USART_Priv.o ./MCAL/USART/USART_Prog.o  ./MCAL/GIE/GIE_prog.o  ./MCAL/EXTI/EXTI_Cnfg.o ./MCAL/EXTI/EXTI_prog.o  ./MCAL/DIO/DIO_prog.o  ./APP/main.o   
+Finished building target: USART.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S USART.elf  >"USART.lss"
+Finished building: USART.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART.elf  "USART.hex"
+Finished building: USART.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9996 bytes (30.5% Full)
+(.text + .data + .bootloader)
+
+Data:        292 bytes (14.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:16:35 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../MCAL/USART/USART_Cnfg.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Cnfg.d" -MT"MCAL/USART/USART_Cnfg.o" -c -o "MCAL/USART/USART_Cnfg.o" "../MCAL/USART/USART_Cnfg.c"
+Finished building: ../MCAL/USART/USART_Cnfg.c
+ 
+Building file: ../MCAL/USART/USART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/USART/USART_Prog.d" -MT"MCAL/USART/USART_Prog.o" -c -o "MCAL/USART/USART_Prog.o" "../MCAL/USART/USART_Prog.c"
+../MCAL/USART/USART_Prog.c: In function 'USART_enuRecieveByteASync':
+../MCAL/USART/USART_Prog.c:501: warning: assignment from incompatible pointer type
+Finished building: ../MCAL/USART/USART_Prog.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c: In function 'func':
+../APP/main.c:28: warning: dereferencing 'void *' pointer
+../APP/main.c:28: error: invalid use of void expression
+../APP/main.c: In function 'main':
+../APP/main.c:49: error: expected expression before 'u8'
+../APP/main.c:49: warning: passing argument 1 of 'USART_enuRecieveByteASync' from incompatible pointer type
+make: *** [APP/main.o] Error 1
+09:17:13 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c: In function 'main':
+../APP/main.c:49: error: expected expression before 'u8'
+make: *** [APP/main.o] Error 1
+09:21:56 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c: In function 'main':
+../APP/main.c:49: warning: passing argument 2 of 'USART_enuRecieveByteASync' makes pointer from integer without a cast
+Finished building: ../APP/main.c
+ 
+Building target: USART.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,USART.map -mmcu=atmega32 -o "USART.elf"  ./MCAL/USART/USART_Cnfg.o ./MCAL/USART/USART_Priv.o ./MCAL/USART/USART_Prog.o  ./MCAL/GIE/GIE_prog.o  ./MCAL/EXTI/EXTI_Cnfg.o ./MCAL/EXTI/EXTI_prog.o  ./MCAL/DIO/DIO_prog.o  ./APP/main.o   
+Finished building target: USART.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S USART.elf  >"USART.lss"
+Finished building: USART.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART.elf  "USART.hex"
+Finished building: USART.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10040 bytes (30.6% Full)
+(.text + .data + .bootloader)
+
+Data:        294 bytes (14.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:22:16 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+Finished building: ../APP/main.c
+ 
+Building target: USART.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,USART.map -mmcu=atmega32 -o "USART.elf"  ./MCAL/USART/USART_Cnfg.o ./MCAL/USART/USART_Priv.o ./MCAL/USART/USART_Prog.o  ./MCAL/GIE/GIE_prog.o  ./MCAL/EXTI/EXTI_Cnfg.o ./MCAL/EXTI/EXTI_prog.o  ./MCAL/DIO/DIO_prog.o  ./APP/main.o   
+Finished building target: USART.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S USART.elf  >"USART.lss"
+Finished building: USART.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART.elf  "USART.hex"
+Finished building: USART.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10040 bytes (30.6% Full)
+(.text + .data + .bootloader)
+
+Data:        294 bytes (14.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:23:29 **** Incremental Build of configuration Debug for project USART ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+Finished building: ../APP/main.c
+ 
+Building target: USART.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,USART.map -mmcu=atmega32 -o "USART.elf"  ./MCAL/USART/USART_Cnfg.o ./MCAL/USART/USART_Priv.o ./MCAL/USART/USART_Prog.o  ./MCAL/GIE/GIE_prog.o  ./MCAL/EXTI/EXTI_Cnfg.o ./MCAL/EXTI/EXTI_prog.o  ./MCAL/DIO/DIO_prog.o  ./APP/main.o   
+Finished building target: USART.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S USART.elf  >"USART.lss"
+Finished building: USART.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex USART.elf  "USART.hex"
+Finished building: USART.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 USART.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10048 bytes (30.7% Full)
+(.text + .data + .bootloader)
+
+Data:        294 bytes (14.4% Full)
 (.data + .bss + .noinit)
 
 

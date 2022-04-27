@@ -2,27 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="USART_PRIV_H_" key="selection"/>
+		<item value="Local_enuUSART_Error_State" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="true" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Local_enuUSART_Error"/>
+			<item value="UBRR_Temp"/>
+			<item value="UCSRC_Temp"/>
+			<item value="UCSRB_Temp"/>
+			<item value="UCSRA_Temp"/>
 			<item value="UART_PRIV_H_"/>
 			<item value="UART_"/>
 			<item value="UART_INTERFACE_H_"/>
-			<item value="UART_CNFG_H_"/>
-			<item value="SetCompare"/>
-			<item value="Inline_Pre"/>
-			<item value="Inline_preload"/>
-			<item value="Inlin_preload"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Local_enuUSART_Error_State"/>
+			<item value="UBRR_f32Temp"/>
+			<item value="UCSRC_u8Temp"/>
+			<item value="UCSRB_u8Temp"/>
+			<item value="UCSRA_u8Temp"/>
 			<item value="USART_PRIV_H_"/>
 			<item value="USART_"/>
 			<item value="USART_INTERFACE_H_"/>
-			<item value="USART_CNFG_H_"/>
-			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

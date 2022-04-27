@@ -1,0 +1,59 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 27, 2022
+ *      Author: SHAABAN
+ */
+
+#include "..\LIB\STD_TYPES.h"
+#include "..\LIB\errorStates.h"
+
+
+#include "../MCAL/DIO/DIO_interface.h"
+
+#include "../MCAL/USART/USART_Interface.h"
+#include "../MCAL/USART/USART_Cnfg.h"
+
+
+
+#ifndef F_CPU
+#define F_CPU    (1000000UL)
+#endif
+
+
+int main(void)
+{
+
+
+	u8 Local_u8Data ;
+	//Configure the TXD(PD1) pin as output pin
+	DIO_enuSetPinDirection(DIO_PORTD , DIO_PIN1 , DIO_OUTPUT_PIN);
+
+	/*++++++++++++++++ BUZZER +++++++++++++++++++++**/
+	DIO_enuSetPinDirection(DIO_PORTD , DIO_PIN5 , DIO_OUTPUT_PIN);
+	DIO_enuSetPinValue(DIO_PORTD , DIO_PIN5 , DIO_HIGH);
+
+
+	/*+++++++++++++++++++++++++++++++++++++++++++++**/
+
+	//Configure the RXD(PD0) pin as INPUT pin
+	DIO_enuSetPinDirection(DIO_PORTD , DIO_PIN0 , DIO_INPTU_PIN);
+
+	USART_enuInit();
+
+	while(1)
+	{
+
+		UART_enuRecieveByte( &Local_u8Data);
+
+		UART_enuSendByte(Local_u8Data);
+
+
+	}
+
+
+
+
+	return 0 ;
+
+}
